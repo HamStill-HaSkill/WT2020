@@ -149,6 +149,34 @@ a.menu-href:hover {color: white;}
     flex-direction: row;
     justify-content: left;
 }
+.cards {
+    display: flex;
+    flex-direction: colum;
+    justify-content: left;
+}
+
+.cards-bar {
+    background: #acacac; /* Цвет фона */
+    border: solid 5px #757575;
+    width: 90%;
+}
+.cards-block {
+    padding-top: 10px;
+}
+
+
+.cards-text {
+   padding-top: 10px;
+   font-family: "Open Sans",Helvetica,Arial,sans-serif;
+   color: White;
+   font-size: 40px;
+}
+.pay-btn {
+    background: #5c785f; /* Цвет фона */
+}
+.remove-btn {
+    background: #ff0000; /* Цвет фона */
+}
 
 .news-img {
     padding-right: 20px;

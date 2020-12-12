@@ -525,7 +525,19 @@
         <async-supported>true</async-supported>
     </filter>
 -->
-
+	<filter>
+	    <filter-name>EncodingFilter</filter-name>
+	    <filter-class>Filters.EncodingFilter</filter-class>
+    <init-param>
+        <param-name>encoding</param-name>
+        <param-value>UTF-8</param-value>
+    </init-param>
+	</filter>
+	 
+	<filter-mapping>
+	    <filter-name>EncodingFilter</filter-name>
+	    <servlet-name>WelcomeController</servlet-name>
+	</filter-mapping>
 
   <!-- NOTE: An SSI Servlet is also available as an alternative SSI         -->
   <!-- implementation. Use either the Servlet or the Filter but NOT both.   -->

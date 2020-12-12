@@ -50,17 +50,18 @@
 
 <div class="pay-main">
         <aside class="pay-bar">
-            <form name="test" action="register.php" method="post">
+            <form name="test" action="Register" method="post">
                 <p class="log-font">Логин:<br>
-                <input name="login" type="text" required pattern="[a-zA-Z0-9]+" minlength=4 maxlength=255 class="log-edit"></p>
+                <input name="login" autocomplete="off" type="text" required pattern="[a-zA-Z0-9]+" minlength=4 maxlength=255 class="log-edit"></p>
                 <p class="log-font">email:<br>
-                <input name="email" type="text" required pattern="[a-zA-Z0-9\@\.\_]+" minlength=4 maxlength=255 class="log-edit"></p>
+                <input name="email" autocomplete="off" type="text" required pattern="[a-zA-Z0-9\@\.\_]+" minlength=4 maxlength=255 class="log-edit"></p>
                 <p class="log-font">Пароль:<Br>
-                <input name="password" type="password" required pattern="[a-zA-Z0-9]+" minlength=6 maxlength=255 class="log-edit"></p>
+                <input name="password" autocomplete="off" type="password" required pattern="[a-zA-Z0-9]+" minlength=6 maxlength=255 class="log-edit"></p>
                 <p class="rule">
                 <input type="checkbox" name="mailing">&nbsp;&nbsp;Получать новости на email</p>
+                <p class="log-font">${data}<br>
                 <button type="submit" name="submit" class="pay-btn">Регистрация</button>
-                <button onclick="document.location='login.php'" class="cancel-btn">Назад</button>
+                <button onclick="document.location='Login'" class="cancel-btn">Вход</button>
             </form>
         </aside>
 </div>

@@ -1,10 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html lang="rus">
 <head>
     <title>PayPalka Вход</title>
-    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="shortcut icon" href="/img/logo2.png" type="image/png">
     <link rel="stylesheet" href="css/stylesheet.css">
 </head>
@@ -50,11 +49,12 @@
 
 <div class="pay-main">
         <aside class="pay-bar">
-            <form name="test" action="Login" method="post">
-                <p class="log-font">Логин:${data}<br>
+            <form name="test" action="Login" accept-charset="UTF-8" method="post">
+                <p class="log-font">Логин:<br>
                 <input name="login" autocomplete="off" type="text" required pattern="[a-zA-Z0-9]+" minlength=4 maxlength=255 class="log-edit"></p>
                 <p class="log-font">Пароль:<Br>
                 <input name="password" autocomplete="off" type="password" required pattern="[a-zA-Z0-9]+" minlength=6 maxlength=255 class="log-edit"></p>
+                <p class="log-font">${data}<br>
                 <button type="submit" name="submit" class="pay-btn">Войти</button>
                 <button onclick="document.location='Register'" class="cancel-btn">Регистрация</button>
             </form>
