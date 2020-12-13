@@ -1,6 +1,7 @@
 package Controllers;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import Models.CardModel;
+import Models.DbModel;
 
 
 @WebServlet("/Cards")
@@ -22,11 +26,13 @@ public class CardsController extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		 HttpSession session = request.getSession();
+		 	HttpSession session = request.getSession();
 	        String name = (String) session.getAttribute("name");
 	         
 	        try {
 	            if(name != null) {
+	            	ArrayList<CardModel> cards = DbModel.GetCards(name);
+	            	request.setAttribute("cards", cards);
 	        		RequestDispatcher dispatcher = request.getRequestDispatcher("Views/cards.jsp");
 	        		dispatcher.forward(request, response);
 	            } 

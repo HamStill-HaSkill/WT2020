@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page import="java.util.ArrayList"%>
+<%@ page import="Models.CardModel"%>
 <!DOCTYPE html>
 
 <html lang="rus">
@@ -13,7 +15,7 @@
                     </a>
                 </div>
                 <div class="box">
-                    <a href="shop.html" class="menu-href" id="shop">
+                    <a href="CardAdd" class="menu-href" id="shop">
                         <span>ДОБАВИТЬ КАРТУ</span>
                     </a>
                 </div>
@@ -35,28 +37,23 @@
 </head>
 <body>
     <div class="news-line">
-        <div class="cards-block">
-        	<aside class="cards-bar">
-	        	<div class="cards">
-		            <img src="img/cards.png" alt="HS" height="200" width="220">
-		            <p class="cards-text">2343 3928 3341 3186<br>10/22 ELON MASK</p><br>
-	            </div>
-	            <button onclick="document.location='Register'" class="pay-btn">Перевод</button>
-                <button onclick="document.location='Register'" class="topUP-btn">Пополнить</button>
-                <button onclick="document.location='Register'" class="remove-btn">Удалить</button>
-            </aside>
-        </div>
-        <div class="cards-block">
-        	<aside class="cards-bar">
-	        	<div class="cards">
-		            <img src="img/cards.png" alt="HS" height="200" width="220">
-		            <p class="cards-text">2343 3928 3341 3186<br>10/22 ELON MASK</p><br>
-	            </div>
-	            <button onclick="document.location='Register'" class="pay-btn">Перевод</button>
-                <button onclick="document.location='Register'" class="topUP-btn">Пополнить</button>
-                <button onclick="document.location='Register'" class="remove-btn">Удалить</button>
-            </aside>
-        </div>
+        <% 
+        	ArrayList<CardModel> cardList = (ArrayList<CardModel>)request.getAttribute("cards");
+	        for(int i = 0; i < cardList.size(); i++)
+	        {
+	        %><div class="cards-block">
+	        	<aside class="cards-bar">
+		        	<div class="cards">
+			            <img src="img/cards.png" alt="HS" height="200" width="220">
+			            <p class="cards-text"><%= cardList.get(i).CardNum %><br><%= cardList.get(i).CardDate %> <%= cardList.get(i).CardUser %> <%= cardList.get(i).money %>$</p><br>
+		            </div>
+		            <button onclick="document.location='MinusMoney'" class="pay-btn">Перевод</button>
+	                <button onclick="document.location='AddMoney'" class="topUP-btn">Пополнить</button>
+	                <button onclick="document.location='Remove'" class="remove-btn">Удалить</button>
+	            </aside>
+	        </div>
+	        <%} %>
+
         
     </div>
 

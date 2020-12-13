@@ -11,16 +11,17 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import Models.DbModel;
-import Models.LoginModel;
 
 
-@WebServlet("/CardAdd")
-public class CardAddController extends HttpServlet {
+@WebServlet("/AddMoney")
+public class AddMoneyController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public CardAddController() {
+
+    public AddMoneyController() {
         super();
     }
+
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
@@ -28,7 +29,7 @@ public class CardAddController extends HttpServlet {
          
         try {
             if(name != null) {
-        		RequestDispatcher dispatcher = request.getRequestDispatcher("Views/addCard.jsp");
+        		RequestDispatcher dispatcher = request.getRequestDispatcher("Views/addMoney.jsp");
         		dispatcher.forward(request, response);
             } 
             else {
@@ -44,28 +45,26 @@ public class CardAddController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");     
-		String number = request.getParameter("number");  
-	    String cardNumber = request.getParameter("card_number");  
-	    String date = request.getParameter("date");  
+		String money = request.getParameter("add_money");  
+	    String cardNumber = request.getParameter("card_num"); 
 	    HttpSession session = request.getSession();
-        String name = (String)session.getAttribute("name"); 
-	    int max = 100000;
-	    int money = (int) (Math.random() * ++max);
+        String name = (String) session.getAttribute("name");
+
    
 	    try {
-			if(DbModel.AddCard(cardNumber, number, date, name, money)){  
+			if(DbModel.AddMoney(cardNumber, Integer.parseInt(money), name)){  
 				    RequestDispatcher rd=request.getRequestDispatcher("Cards");  
 				    rd.forward(request,response);  
 			}  
 			else{  
-				request.setAttribute("data", "Эта карта уже добавлена");
-			    RequestDispatcher rd=request.getRequestDispatcher("Views/addCard.jsp");  
+				request.setAttribute("data", "Денег нет");
+			    RequestDispatcher rd=request.getRequestDispatcher("Views/addMoney.jsp");  
 			    rd.forward(request,response);   
 			}
 		} catch (Exception e) {
 			System.out.print(e);
 			request.setAttribute("data", "Ошибка соединения с БД");
-		    RequestDispatcher rd=request.getRequestDispatcher("Views/addCard.jsp");  
+		    RequestDispatcher rd=request.getRequestDispatcher("Views/addMoney.jsp");  
 		    rd.forward(request,response);  
 		}  
 	}

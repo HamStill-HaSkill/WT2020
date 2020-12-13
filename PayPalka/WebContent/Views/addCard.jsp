@@ -9,35 +9,59 @@
     <link rel="import" href="template.php">
     <link rel="shortcut icon" href="/img/logo2.png" type="image/png">
     <link rel="stylesheet" href="css/stylesheet.css">
+    <header>
+    <meta charset="utf-8">
+    <div class="header-bg">
+        <div class="semi-layer">
+            <div class="menu">
+                <div class="box2">
+                    <a href="Welcome" class="menu-href">
+                        <img src="img/logo4.png" class="logo" alt="Главная страница">
+                    </a>
+                </div>
+                <div class="box">
+                    <a href="CardAdd" class="menu-href" id="shop">
+                        <span>ДОБАВИТЬ КАРТУ</span>
+                    </a>
+                </div>
+
+                <div class="box">
+                    <a href="Exit" class="menu-href" id="news">
+                        <span>ВЫХОД</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
 </head>
 <body>
-<script>
-            var link = document.querySelector('link[rel=import]');
-            var content = link.import.querySelector('#base-head');
-            document.body.appendChild(content.cloneNode(true));
-</script>
 <div class="pay-main">
         <aside class="pay-bar">
-            <form name="test" method="post">
-                <p class="pay-font"><b>Выберите способ оплаты:</b><Br>
+           		<p class="pay-font"><b>Выберите плтежную систему:</b><Br>
                     <input type="radio" name="money" value="visa"> Visa<Br>
                     <input type="radio" name="money" value="ms"> Master Card<Br>
-                    <input type="radio" name="money" value="coin"> Чеканной монетой<Br>
+                    <input type="radio" name="money" value="coin"> Чеканная монета<Br>
+                </p>
+            <form name="test" method="post">
+                <p class="pay-font"><b>Номер счета:</b><br>
+                    <input type="text" name="number" size="40" id="field" autocomplete="off" type="text" required pattern="[0-9]+" minlength=4 maxlength=255>
                 </p>
                 <p class="pay-font"><b>Номер карты:</b><br>
-                    <input type="text" size="40" id="field">
+                    <input type="text" name="card_number" size="40" id="field" autocomplete="off" type="text" required pattern="[0-9]+" minlength=4 maxlength=255>
                 </p>
-                <p class="pay-font">Адрес<Br>
-                    <textarea name="adr" cols="40" rows="3" class="text-area"></textarea></p>
-                <p class="rule">
+                 <p class="pay-font"><b>Дата действия карты:</b><br>
+                    <input type="text" name="date" size="40" id="field" autocomplete="off" type="text" minlength=1 maxlength=255>
+                </p>
                 <input type="checkbox">&nbsp;&nbsp;Я ознакомился и принимаю условия следующих документов:
-                Лицензионное соглашение с конечным пользователем (Blizzard) и Условия продажи, а также соглашаетесь
-                на немедленное выполнение вашего заказа. Как только выполнение заказа начинается, вы теряете право отменить его.
-            </p>
+                Лицензионное соглашение с конечным пользователем (PayPalka) и Условия продажи, а также соглашаетесь
+                на немедленное выполнение вашего платежа. Как только выполнение платежа начинается, вы теряете его.
+            </p>${data}<br>
+            <button type="submit" name="submit" class="pay-btn">Добавить</button>
+            <button onclick="document.location='Welcome'" class="cancel-btn">Отмена</button>
             </form>
             <div class="btn">
-                <button onclick="document.location='index.html'" class="pay-btn">Оплатить</button>
-                <button onclick="document.location='index.html'" class="cancel-btn">Отмена</button>
+                
             </div>
         </aside>
 
@@ -45,9 +69,8 @@
         <img src="img/pay.gif"  width="533" height="400" alt="ХЗ">
     </div>
 </div>
-<script>
-        var content = link.import.querySelector('#base-footer');
-        document.body.appendChild(content.cloneNode(true));
-</script>
+    <footer>
+        <p class="main-text" align="center">У нас нет прав 2000-2020. Платформы: PC, PS5, Xbox 365</p>
+    </footer>
 </body>
 </html>

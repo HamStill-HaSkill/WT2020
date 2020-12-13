@@ -19,21 +19,9 @@
                                     <img src="img/logo4.png" class="logo" alt="Главная страница">
                                 </a>
                             </div>
-
                             <div class="box">
-                                <a href="shop.html" class="menu-href" id="shop">
-                                    <span>ПУСТО</span>
-                                </a>
-                            </div>
-            
-                            <div class="box">
-                                <a href="news.php" class="menu-href" id="news">
-                                    <span>НОВОСТИ</span>
-                                </a>
-                            </div>
-                            <div class="box">
-                                <a href="info.php" class="menu-href" id="info">
-                                    <span>ИНФО</span>
+                                <a href="Register" class="menu-href" id="info">
+                                    <span>РЕГИСТРАЦИЯ</span>
                                 </a>
                             </div>
                             <div class="box">
